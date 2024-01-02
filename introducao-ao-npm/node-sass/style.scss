@@ -1,7 +1,7 @@
-@import "header";
+@import "header"; // Importa o arquivo header.scss, o "_" é opcional.
 
-$roxo: #84e;
+$roxo: #84e; // Está criando uma variável chamada $roxo e atribuindo o valor #84e a ela.
 
 body {
-  background-color: $roxo;
+  background-color: $roxo; // Está atribuindo o valor da variável $roxo ao background.
 }

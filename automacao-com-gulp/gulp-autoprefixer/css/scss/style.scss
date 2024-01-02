@@ -1,10 +1,11 @@
+@import "header"; // Importa o arquivo header.scss, o "_" é opcional.
+
 // O mixin é um bloco de código que pode ser reutilizado em qualquer lugar do projeto.
 @mixin sombra() {
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
 }
 
-header {
-  background-color: blue;
+h1 {
   // Inclui o mixin sombra, sendo assim, o h1 terá o que foi definido no mixin.
   @include sombra();
 }
