@@ -27,7 +27,7 @@ function gulpJS() {
 }
 
 // Função responsável por concatenar/juntar os arquivos de plugins js.
-function pluginsJS() {
+function pluginsJS() {  
   // Sempre quando queremos modificar um arquivo tem que usar o return.
   return (
     gulp
@@ -64,7 +64,7 @@ function compilaSass(compresso) {
       // O src é o caminho para encontrar o(s) arquivo(s) scss. O "**"" é para indicar que é para procurar em todas as pastas e subpastas. O "*" é para indicar que é para procurar por todos os arquivos que terminam com .scss.
       .src("css/scss/**/*.scss")
       // O pipe é responsável por encadear as funções, nesse caso está chamando o sass que converte o scss para css e passa como parâmetro a opção de outputStyle como compressed, que é para comprimir o arquivo de saída.
-      .pipe(sass({ outputStyle: compresso }))
+      .pipe(sass({ outputStyle: "compressed" }))
       // O pipe é responsável por encadear as funções, nesse caso está chamando o autoprefixer é passado como parâmetro o browsers, que é para indicar a partir de qual versão do navegador o prefixo será adicionado e o cascade como false, que é para não deixar o código com identação.
       .pipe(autoprefixer({ browsers: ["last 2 versions"], cascade: false }))
       // O pipe é responsável por encadear as funções, nesse caso está chamando o gulp e dentro dele a função dest, que é para definir o destino do(s) arquivo(s) compilado(s), nesse caso é a pasta css.
@@ -94,4 +94,4 @@ exports.compilaSass = compilaSass;
 exports.watch = watch;
 
 // Executa as funções watch, browser-sync, sass, mainjs e pluginsjs ao mesmo tempo quando rodar o comando gulp.
-exports.default = watch, browser, compilaSass, gulpJS, pluginsJS;
+exports.default = gulp.parallel(watch, browser, compilaSass, gulpJS, pluginsJS);
